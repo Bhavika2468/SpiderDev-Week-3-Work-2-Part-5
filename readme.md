@@ -102,7 +102,7 @@ Everything is restored when the webpage is reopened.
 
 - HTML5
 - CSS3
-- JavaScript (Vanilla)
+- JavaScript
 
 ---
 
