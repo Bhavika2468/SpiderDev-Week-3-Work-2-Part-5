@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TaskFlow Pro | Kanban Task Board</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<!-- ===========================
+HEADER
+=========================== -->
+
+<header>
+
+    <h1>📌 TaskFlow Pro</h1>
+
+    <p>
+        Organize your work beautifully.
+    </p>
+
+    <div class="top-buttons">
+
+        <button id="themeBtn">
+            🌙 Dark Mode
+        </button>
+
+        <button id="clearBtn">
+            🗑 Clear All
+        </button>
+
+    </div>
+
+</header>
+
+<!-- ===========================
+ADD TASK
+=========================== -->
+
+<section class="task-form">
+
+    <input
+        type="text"
+        id="taskInput"
+        placeholder="Enter task title..."
+        maxlength="60"
+    >
+
+    <span id="characters">
+        60 Characters Left
+    </span>
+
+    <select id="priority">
+
+        <option value="High">
+            🔴 High
+        </option>
+
+        <option value="Medium">
+            🟡 Medium
+        </option>
+
+        <option value="Low">
+            🟢 Low
+        </option>
+
+    </select>
+
+    <div class="preview-box">
+
+        Priority Preview
+
+        <span id="previewBadge" class="high">
+
+            High
+
+        </span>
+
+    </div>
+
+    <button id="addTask">
+
+        ➕ Add Task
+
+    </button>
+
+</section>
+
+<!-- ===========================
+KANBAN BOARD
+=========================== -->
+
+<section class="board">
+
+    <!-- TO DO -->
+
+    <div class="column">
+
+        <h2>
+
+            📝 To Do
+
+            <span id="todoCount">
+
+                0
+
+            </span>
+
+        </h2>
+
+        <div
+            class="task-list"
+            id="todo"
+        >
+
+        </div>
+
+    </div>
+
+    <!-- IN PROGRESS -->
+
+    <div class="column">
+
+        <h2>
+
+            ⚡ In Progress
+
+            <span id="progressCount">
+
+                0
+
+            </span>
+
+        </h2>
+
+        <div
+            class="task-list"
+            id="progress"
+        >
+
+        </div>
+
+    </div>
+
+    <!-- DONE -->
+
+    <div class="column">
+
+        <h2>
+
+            ✅ Done
+
+            <span id="doneCount">
+
+                0
+
+            </span>
+
+        </h2>
+
+        <div
+            class="task-list"
+            id="done"
+        >
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===========================
+FOOTER
+=========================== -->
+
+<footer>
+
+    <p>
+
+        Double-click any task to delete it.
+
+    </p>
+
+    <p>
+
+        Drag & Drop tasks between columns.
+
+    </p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

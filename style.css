@@ -1,0 +1,532 @@
+/* ===============================
+   RESET
+=============================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+/* ===============================
+   BODY
+=============================== */
+
+body{
+
+    min-height:100vh;
+
+    background:#08111f;
+
+    color:white;
+
+    overflow-x:hidden;
+
+    transition:.4s;
+
+}
+
+/* ===============================
+   ANIMATED BACKGROUND
+=============================== */
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-1;
+
+    background:
+
+    radial-gradient(circle at 20% 20%,rgba(168,85,247,.30),transparent 35%),
+
+    radial-gradient(circle at 80% 25%,rgba(34,211,238,.28),transparent 35%),
+
+    radial-gradient(circle at 50% 80%,rgba(244,114,182,.22),transparent 35%);
+
+    filter:blur(70px);
+
+    animation:bgMove 10s infinite alternate ease-in-out;
+
+}
+
+@keyframes bgMove{
+
+from{
+
+transform:translateY(-20px);
+
+}
+
+to{
+
+transform:translateY(20px);
+
+}
+
+}
+
+/* ===============================
+   HEADER
+=============================== */
+
+header{
+
+    text-align:center;
+
+    padding:30px;
+
+}
+
+header h1{
+
+    font-size:42px;
+
+    color:#22d3ee;
+
+    text-shadow:0 0 15px rgba(34,211,238,.45);
+
+}
+
+header p{
+
+    margin-top:10px;
+
+    color:#d1d5db;
+
+}
+
+/* ===============================
+   TOP BUTTONS
+=============================== */
+
+.top-buttons{
+
+    margin-top:25px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+button{
+
+    padding:14px 24px;
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    transform:translateY(-5px) scale(1.05);
+
+}
+
+#themeBtn{
+
+    background:linear-gradient(135deg,#3b82f6,#8b5cf6);
+
+    box-shadow:0 0 20px rgba(59,130,246,.35);
+
+}
+
+#clearBtn{
+
+    background:linear-gradient(135deg,#ef4444,#f97316);
+
+    box-shadow:0 0 20px rgba(239,68,68,.35);
+
+}
+
+/* ===============================
+   FORM
+=============================== */
+
+.task-form{
+
+    width:92%;
+
+    max-width:900px;
+
+    margin:25px auto;
+
+    padding:30px;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+}
+
+.task-form input{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.08);
+
+    color:white;
+
+    margin-bottom:12px;
+
+}
+
+#characters{
+
+    display:block;
+
+    margin-bottom:18px;
+
+    color:#cbd5e1;
+
+    font-size:14px;
+
+}
+
+.task-form select{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.08);
+
+    color:white;
+
+    margin-bottom:18px;
+
+}
+
+.preview-box{
+
+    padding:15px;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.06);
+
+    margin-bottom:20px;
+
+}
+
+/* ===============================
+   PRIORITY BADGES
+=============================== */
+
+.high{
+
+    background:#ef4444;
+
+}
+
+.medium{
+
+    background:#facc15;
+
+    color:black;
+
+}
+
+.low{
+
+    background:#22c55e;
+
+}
+
+#previewBadge{
+
+    display:inline-block;
+
+    padding:6px 15px;
+
+    border-radius:25px;
+
+    margin-left:10px;
+
+    font-size:14px;
+
+}
+
+/* ===============================
+   BOARD
+=============================== */
+
+.board{
+
+    width:95%;
+
+    margin:35px auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+.column{
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:22px;
+
+    padding:20px;
+
+}
+
+.column h2{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+    color:#22d3ee;
+
+}
+
+.column span{
+
+    background:#8b5cf6;
+
+    width:35px;
+
+    height:35px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:50%;
+
+    color:white;
+
+}
+
+/* Red count badge when >5 tasks */
+
+.danger{
+
+    background:#ef4444 !important;
+
+}
+
+/* ===============================
+   TASK LIST
+=============================== */
+
+.task-list{
+
+    min-height:420px;
+
+    transition:.3s;
+
+}
+
+.task-list.drag-over{
+
+    border:2px dashed #22d3ee;
+
+    background:rgba(34,211,238,.12);
+
+}
+
+/* ===============================
+   TASK CARD
+=============================== */
+
+.task{
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:15px;
+
+    padding:18px;
+
+    margin-bottom:15px;
+
+    cursor:grab;
+
+    border-left:6px solid #22d3ee;
+
+    transition:.3s;
+
+}
+
+.task:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 0 18px rgba(34,211,238,.25);
+
+}
+
+.task h3{
+
+    margin-bottom:12px;
+
+    font-size:18px;
+
+}
+
+.badge{
+
+    display:inline-block;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    color:white;
+
+}
+
+/* ===============================
+   FOOTER
+=============================== */
+
+footer{
+
+    text-align:center;
+
+    margin:40px 0;
+
+    color:#cbd5e1;
+
+    line-height:1.8;
+
+}
+
+/* ===============================
+   LIGHT THEME
+=============================== */
+
+body.light{
+
+    background:#f4f7fb;
+
+    color:#111827;
+
+}
+
+body.light .column,
+body.light .task-form{
+
+    background:rgba(255,255,255,.9);
+
+}
+
+body.light input,
+body.light select{
+
+    background:#eef2ff;
+
+    color:#111827;
+
+}
+
+body.light .task{
+
+    background:white;
+
+    color:#111827;
+
+}
+
+/* ===============================
+   RESPONSIVE
+=============================== */
+
+@media(max-width:1000px){
+
+.board{
+
+grid-template-columns:1fr;
+
+}
+
+.task-list{
+
+min-height:220px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+header h1{
+
+font-size:32px;
+
+}
+
+.task-form{
+
+padding:20px;
+
+}
+
+.top-buttons{
+
+flex-direction:column;
+
+}
+
+button{
+
+width:100%;
+
+}
+
+}
